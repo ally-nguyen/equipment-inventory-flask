@@ -1,0 +1,23 @@
+HOW TO RUN:
+0. Create virtual environment (only do once)
+```python3 -m venv venv```
+
+1. Start the virtual environment
+```source venv/bin/activate```
+
+2. Run FLask
+```flask run```
+
+
+GIT: 
+```git add .```
+I want to stage all files
+
+```git add <filename>```
+I want to stage this file
+
+```git commit -m <enter message>```
+I want to save all staged files and add a message
+
+```git push```
+I want to push all saved files to my GitHub

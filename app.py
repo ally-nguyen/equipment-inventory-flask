@@ -15,6 +15,7 @@ app = Flask(__name__)
 # the associated function.
 @app.route('/')
 def index():
+    print("this is a test")
     data = ["brian", "fat", "asian"]
     return render_template("index.html", data=data)
 
