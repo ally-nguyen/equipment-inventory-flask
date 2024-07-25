@@ -15,8 +15,8 @@ app = Flask(__name__)
 # the associated function.
 @app.route('/')
 def index():
-    print("this is a test")
-    data = ["brian", "fat", "asian"]
+    # [ # ], ] means a list inside a list?
+    data = [ ['Resistor','1K','850','300','535','ABC124','cool','bin 1'], ]
     return render_template("index.html", data=data)
 
 

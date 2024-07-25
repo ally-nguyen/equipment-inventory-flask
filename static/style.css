@@ -1,11 +1,23 @@
-body {
+tbody {
     font-family: Arial, sans-serif;
     background-color: white;
     margin: 0;
     padding: 0;
 }
 
+tr {
+    text-align: center;
+    border: 1px solid black;
+    box-sizing: content-box;
+
+
+
+}
+
 .custom-container {
+    overflow: hidden;
+    height: 100%;
     margin: 28px;
     padding: 16px;
+
 }

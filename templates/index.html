@@ -2,24 +2,60 @@
 
 {% block content %}
 <div class="custom-container">
-    <h1 style="color: rgb(60, 40, 208); text-align: center;">{% block title %} Inventory App {% endblock %}</h1>
+    <h1 style="color: rgb(0, 0, 0); text-align: center; padding: 16px">{% block title %} Inventory App {% endblock %}</h1>
     <div>
+        form 
+        <!--creates labeled text boxs-->
+        <label for="Component">Component:</label>
+        <input type="text" id="Component" name="Component" placeholder="Resistor">
+
+        <label for="Value">Value:</label>
+        <input type="text" id="Value" name="Value" placeholder="1K">
+
+        <label for="Size">Size:</label>
+        <input type="text" id="Size" name="Size" placeholder="850">
+
+        <label for="MFG Part #">MFG Part #:</label>
+        <input type="text" id="MFG Part #" name="MFG Part #" placeholder="ABC124">
+
+        <label for="Qty">Qty:</label>
+        <input type="text" id="Qty" name="Qty" placeholder="10">
+
+        <!--type='submit' sends form data for processing; attribute value displays the word 'submit' for user to see-->
+        <input type="submit" value="Submit">
+
+        <!--table class is the type of table used = hoverable table-->
         <table class="table table-hover">
+            <!--<thead> tag is the table's header-->
             <thead class="thead-dark">
+              <!--<tr> tag is the table rows-->
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Component</th>
+                <th scope="col">Value</th>
+                <th scope="col">Size</th>
+                <th scope="col">Qriginal Qty</th>
+                <th scope="col">Qty</th>
+                <th scope="col">MFG</th>
+                <th scope="col">Description</th>
+                <th scope="col">Location</th>
               </tr>
             </thead>
+            <!--<tbody> tag is the data cells of the table-->
             <tbody>
                 {% for item in data %}
                 <tr>
                     <th scope="row">{{ loop.index }}</th>
-                    <td>{{ item }}</td>
-                    <td>{{ item }}</td>
-                    <td>{{ item }}</td>
+                    <!--<td> is the data cells of the table; aka the body of the table-->
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[4] }}</td>
+                    <td>{{ item[5] }}</td>
+                    <td>{{ item[6] }}</td>
+                    <td>{{ item[7] }}</td>
+
                 </tr>
             {% endfor %}
             </tbody>
