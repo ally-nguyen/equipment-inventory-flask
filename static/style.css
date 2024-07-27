@@ -1,5 +1,5 @@
 tbody {
-    font-family: Arial, sans-serif;
+    font-family: serif;
     background-color: white;
     margin: 0;
     padding: 0;
@@ -8,16 +8,46 @@ tbody {
 tr {
     text-align: center;
     border: 1px solid black;
-    box-sizing: content-box;
-
-
-
 }
 
+/* allows to customize specific class; notice line 4, where container is customized through css
+but without the dot(.) then its just overriding or adding additional elements to that class */
 .custom-container {
     overflow: hidden;
     height: 100%;
-    margin: 28px;
+    margin: 20px;
     padding: 16px;
+}
 
+label {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 650;
+}
+
+input[type="text"] {
+    margin-right: 10px;
+}
+
+/* for submit button */
+input[type="submit"] {
+    background-color: rgb(12, 56, 159);
+    /* color of text */
+    color: white;
+    /* add padding inside button, around button */
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    font: size 12px;
+    /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(106, 131, 152);
+}
+
+/* design the style of the pagination links itself (which is what is shown visible on site) */
+.pagination .page-link {
+    color: black;
+    border: 0.7px solid black;
 }

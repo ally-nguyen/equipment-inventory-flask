@@ -16,7 +16,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # [ # ], ] means a list inside a list?
-    data = [ ['Resistor','1K','850','300','535','ABC124','cool','bin 1'], ]
+    data = [ ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'], 
+             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'],
+             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'],
+             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'],
+             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'], ]
     return render_template("index.html", data=data)
 
 

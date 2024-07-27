@@ -2,24 +2,26 @@
 
 {% block content %}
 <div class="custom-container">
-    <h1 style="color: rgb(0, 0, 0); text-align: center; padding: 16px">{% block title %} Inventory App {% endblock %}</h1>
+    <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:650; color: rgb(0, 0, 0); text-align: center; padding: 28px">{% block title %} Inventory App {% endblock %}</h1>
     <div>
-        form 
+        
         <!--creates labeled text boxs-->
         <label for="Component">Component:</label>
+        <!--establish size for all textboxes-->
         <input type="text" id="Component" name="Component" placeholder="Resistor">
+        
 
         <label for="Value">Value:</label>
         <input type="text" id="Value" name="Value" placeholder="1K">
 
         <label for="Size">Size:</label>
-        <input type="text" id="Size" name="Size" placeholder="850">
+        <input type="text" id="Size" name="Size" placeholder="850" maxlength="3" style="width: 85px">
 
         <label for="MFG Part #">MFG Part #:</label>
-        <input type="text" id="MFG Part #" name="MFG Part #" placeholder="ABC124">
+        <input type="text" id="MFG Part #" name="MFG Part #" placeholder="ABC124" maxlength="30" style="width:250px">
 
         <label for="Qty">Qty:</label>
-        <input type="text" id="Qty" name="Qty" placeholder="10">
+        <input type="text" id="Qty" name="Qty" placeholder="10" style="width:100px">
 
         <!--type='submit' sends form data for processing; attribute value displays the word 'submit' for user to see-->
         <input type="submit" value="Submit">
@@ -60,6 +62,34 @@
             {% endfor %}
             </tbody>
           </table>
+          <!--creates pagination aka arrow keys to keep track of pages of parts-->
+          <nav aria-label="Page navigation">
+            <!--justify-content-end moves the pagination to the right end of the table
+            <ul> tag indicates class is taken from css bootstrap-->
+            <ul class="pagination justify-content-end">
+              <!--<li> tag indicates a pagination item (ex: 3 pages) and page-item indicates pagination effect taken from css bootstrap-->
+              <li class="page-item">
+                <!--'aria-label="Previous"' provides an accessible label for action to go to previous page
+                page-link class is for styling each pagination (ex: previous, 1, 2, 3, next) to make them look consistent w/ each other-->
+                <a class="page-link" href="#" aria-label="Previous">
+                  <!--allows for arrow key to be visible, but behind is the action that allows to go to previous page
+                    '&laquo' creates the image of the arrows displayed-->
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <!--<a> tags are used to link other webpages, hences being associated with href to provide a link to x page-->
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
     </div>
     
 </div>
