@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="custom-container">
+    <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:650; color: rgb(0, 0, 0); text-align: center; padding: 28px">{% block title %} Inventory App {% endblock %}</h1>
+    <div>
+        
+        <!--creates labeled text boxs-->
+        <label for="Component">Component:</label>
+        <!--establish size for all textboxes-->
+        <input type="text" id="Component" name="Component" placeholder="Resistor">
+        
+
+        <label for="Value">Value:</label>
+        <input type="text" id="Value" name="Value" placeholder="1K">
+
+        <label for="Size">Size:</label>
+        <input type="text" id="Size" name="Size" placeholder="5000" maxlength="4" style="width: 85px">
+
+        <label for="MFG Part #">MFG Part #:</label>
+        <input type="text" id="MFG Part #" name="MFG Part #" placeholder="ABC124" maxlength="30" style="width:250px">
+
+        <label for="Qty">Qty:</label>
+        <input type="text" id="Qty" name="Qty" placeholder="10" style="width:100px">
+
+        <!--type='submit' sends form data for processing; attribute value displays the word 'submit' for user to see-->
+        <input type="submit" value="Submit">
+
+        <!--table class is the type of table used = hoverable table-->
+        <table class="table table-hover">
+            <!--<thead> tag is the table's header-->
+            <thead class="thead-dark">
+              <!--<tr> tag is the table rows-->
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Component</th>
+                <th scope="col">Value</th>
+                <th scope="col">Size</th>
+                <th scope="col">Qriginal Qty</th>
+                <th scope="col">Qty</th>
+                <th scope="col">MFG</th>
+                <th scope="col">Description</th>
+                <th scope="col">Location</th>
+              </tr>
+            </thead>
+            <!--<tbody> tag is the data cells of the table-->
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <!--<td> is the data cells of the table; aka the body of the table-->
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[4] }}</td>
+                    <td>{{ item[5] }}</td>
+                    <td>{{ item[6] }}</td>
+                    <td>{{ item[7] }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <!--creates pagination aka arrow keys to keep track of pages of parts-->
+          <nav aria-label="Page navigation">
+            <!--justify-content-end moves the pagination to the right end of the table
+            <ul> tag indicates class is taken from css bootstrap-->
+            <ul class="pagination justify-content-end">
+              <!--<li> tag indicates a pagination item (ex: 3 pages) and page-item indicates pagination effect taken from css bootstrap-->
+              <li class="page-item">
+                <!--'aria-label="Previous"' provides an accessible label for action to go to previous page
+                page-link class is for styling each pagination (ex: previous, 1, 2, 3, next) to make them look consistent w/ each other-->
+                <a class="page-link" href="#" aria-label="Previous">
+                  <!--allows for arrow key to be visible, but behind is the action that allows to go to previous page
+                    '&laquo' creates the image of the arrows displayed-->
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <!--<a> tags are used to link other webpages, hences being associated with href to provide a link to x page-->
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+    
+</div>
+    
+{% endblock %}

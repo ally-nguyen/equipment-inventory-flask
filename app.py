@@ -4,6 +4,7 @@ import os
 from flask import Flask
 from flask import render_template
 from dotenv import load_dotenv
+from flask import Flask, request, jsonify
 
 
 # Flask constructor takes the name of 
@@ -15,14 +16,23 @@ app = Flask(__name__)
 # the associated function.
 @app.route('/')
 def index():
-    # [ # ], ] means a list inside a list?
-    data = [ ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'], 
-             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'],
-             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'],
-             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'],
-             ['Resistor','1K','850','300','535','GRM188R60J226MEA0J','22 µF ±20% 6.3V Ceramic Capacitor X5R 0603 (1608 Metric)','bin 1'], ]
-    return render_template("index.html", data=data)
+    return render_template('index.html')
 
+@app.route('/submit', methods = ['POST'])
+#d ef submit is used to process/handle the submitted data 
+def submit():
+    data = request.json
+    component = data.get("component")
+    size = data.get("size")
+
+    # saves data, stores it (processes data) is database using JSON 
+    response_data = {
+        # key-value
+        "component":component,
+        "size":size
+    }
+    # return a JSON response to client with code 200 (means request was successful)
+    return jsonify(response_data),200
 
 @app.route('/test')
 def test():
